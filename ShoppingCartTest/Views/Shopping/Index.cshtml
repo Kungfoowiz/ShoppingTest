@@ -1,0 +1,58 @@
+﻿
+@model IEnumerable<ShoppingCartTest.Models.ShoppingCartItem>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "Index";
+
+}
+
+
+
+<div>
+
+    <form action="ViewItem" method="post">
+
+        <input name="CartId" value="1000" type="hidden" />
+
+        @foreach (var item in Model)
+        {
+
+            <div class="shoppingItem">
+
+                <div>
+                    <button class="indexProduct" type="submit" 
+                            name="ProductId" value="@item.ProductId">
+                        @*<img src="Image" title="Image here" />*@
+                        <img src="~/Content/Images/@item.Image" />
+                    </button>
+                </div>
+
+                <div class="itemDetails">
+
+                    <button type="submit" name="ProductId" value="@item.ProductId">
+                        <div>@item.Name</div>
+                    </button>
+
+                    <div>@item.Currency@item.Price.ToString("N2")</div>
+
+                </div>
+
+            </div>
+        }
+
+    </form>
+
+
+</div>
+
+
+
+
+<div id="actionLinks">
+
+    @Html.ActionLink("Click to view Shopping Basket", "ViewBasket", "Shopping")
+
+</div>
+

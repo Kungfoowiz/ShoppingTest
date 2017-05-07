@@ -1,0 +1,63 @@
+﻿@*@model IEnumerable<ShoppingCartTest.Models.Cart>*@
+@model IEnumerable<ShoppingCartTest.Models.ShoppingCartItem>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "Index";
+
+}
+
+
+<form action="Add" method="post">
+
+    <input name="CartId" value="1000" type="hidden"/>
+
+    <table>
+
+        <tr> <td> <button type="submit" name="ProductId" value="1">Add product A to basket</button> </td></tr>
+        <tr> <td> <button type="submit" name="ProductId" value="2">Add product B to basket</button> </td></tr>
+        <tr> <td> <button type="submit" name="ProductId" value="3">Add product C to basket</button> </td></tr>
+        <tr> <td> <button type="submit" name="ProductId" value="4">Add product D to basket</button> </td></tr>
+
+    </table>
+
+</form>
+
+
+<form action="Remove" method="post">
+
+    <input name="CartId" value="1000" type="hidden" />
+
+    <table>
+
+        <tr> <td> <button type="submit" name="ProductId" value="1">Remove product A from basket</button> </td></tr>
+        <tr> <td> <button type="submit" name="ProductId" value="2">Remove product B from basket</button> </td></tr>
+        <tr> <td> <button type="submit" name="ProductId" value="3">Remove product C from basket</button> </td></tr>
+        <tr> <td> <button type="submit" name="ProductId" value="4">Remove product D from basket</button> </td></tr>
+
+    </table>
+
+</form>
+
+
+
+
+<table>
+
+    <tr>    
+        <td>ProductId</td> <td>Quantity</td> <td>Name</td> 
+        <td>Price</td> <td>OfferMinimumQty</td> <td>OfferPrice</td> 
+        <td>TotalPrice</td> <td>Image</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductId</td> <td>@item.Quantity</td> <td>@item.Name</td>
+            <td>@item.Price</td> <td>@item.OfferMinimumQty</td> <td>@item.OfferPrice</td>
+            <td>@item.TotalPrice</td> <td>@item.Image</td>
+        </tr>
+    }
+
+</table>

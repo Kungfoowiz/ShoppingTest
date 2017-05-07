@@ -1,0 +1,81 @@
+﻿
+@model IEnumerable<ShoppingCartTest.Models.ShoppingCartItem>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "ViewBasket";
+
+}
+
+
+
+
+
+
+<div>
+
+
+
+
+    <table id="shoppingBasket">
+
+
+
+        <tr>
+            <td>ProductId</td>
+            <td>Quantity</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>OfferMinimumQty</td>
+            <td>OfferPrice</td>
+            <td>TotalPrice</td>
+            <td>Image</td>
+            <td>Actions</td>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.ProductId</td>
+                <td>@item.Quantity</td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.OfferMinimumQty</td>
+                <td>@item.OfferPrice</td>
+                <td>@item.TotalPrice</td>
+                @*<td>@item.Image</td>*@
+                <td><img src="~/Content/Images/@item.Image" /></td>
+                <td>
+                    <form action="Remove" method="post">
+                        <input name="CartId" value="1000" type="hidden" />
+                        <button class="hoverButton" type="submit" name="ProductId" 
+                                value="@item.ProductId">Remove 1 from basket</button>
+                    </form>
+                    <form action="Add" method="post">
+                        <input name="CartId" value="1000" type="hidden" />
+                        <button class="hoverButton" type="submit" name="ProductId" 
+                                value="@item.ProductId">Add 1 to basket</button>
+                    </form>
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+
+</div>
+
+
+
+
+
+<div id="actionLinks">
+
+    @Html.ActionLink("Click to view Products", "Index", "Shopping")
+
+</div>
+
+

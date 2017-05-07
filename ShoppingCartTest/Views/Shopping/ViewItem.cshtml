@@ -1,0 +1,67 @@
+﻿
+@model IEnumerable<ShoppingCartTest.Models.ShoppingCartItem>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "ViewItem";
+
+}
+
+
+<div>
+
+    <form action="Add" method="post">
+
+        <input name="CartId" value="1000" type="hidden" />
+
+        
+        
+        <div class="shoppingItem">
+
+
+            <img src="~/Content/Images/@Model.FirstOrDefault().Image" />
+
+            <div class="itemSpecificDetails">
+
+                <div>@Model.FirstOrDefault().Name</div>
+
+                <div>@Model.FirstOrDefault().Currency@Model.FirstOrDefault().Price.ToString("N2")</div>
+
+                <div>Buy @Model.FirstOrDefault().OfferMinimumQty for @Model.FirstOrDefault().Currency@Model.FirstOrDefault().OfferPrice.ToString("N2")</div>
+
+                <div>
+                    <button class="hoverButton" type="submit" name="ProductId" value="@Model.FirstOrDefault().ProductId">
+                        Add product @Model.FirstOrDefault().Name to basket
+                    </button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+</form>
+
+
+
+</div>
+
+
+
+
+
+<div id="actionLinks">
+
+    <div>
+        @Html.ActionLink("Click to view Products", "Index", "Shopping")
+    </div>
+
+    <div>
+        @Html.ActionLink("Click to view Shopping Basket", "ViewBasket", "Shopping")
+    </div>
+
+</div>
+

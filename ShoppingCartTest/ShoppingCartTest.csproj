@@ -197,7 +197,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Models\CommonModels.cs" />
+    <Compile Include="Models\LoginViewModels.cs" />
     <Compile Include="Models\ShoppingViewModels.cs" />
     <Compile Include="Models\Cart.cs">
       <DependentUpon>ShoppingContext.tt</DependentUpon>

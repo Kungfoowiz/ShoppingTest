@@ -43,7 +43,7 @@ namespace ShoppingCartTest.Controllers
         // GET: Shopping
         public ActionResult Index()
         {
-            
+            ViewBag.Title = "Index"; 
             return View(new ShoppingModel().View()); 
             
             //return View(cart); 
